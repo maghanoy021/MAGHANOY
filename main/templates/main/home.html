@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <h2>Welcome To My Django Project!</h2>
+    <p>This is my django project.</p>
+
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+
+    <script src="{% static 'js/script.js' %}"></script>
+    
+{% endblock %}
