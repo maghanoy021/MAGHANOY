@@ -1,13 +1,13 @@
-{%  extends 'main/base.html' %}
-{% load static %}
+{% extends 'main/base.html' %}
+{% block title %}Create a New Post{% endblock %}
 {% block content %}
-<br>
-<br>
-    <h1>Edit Post</h1>
-    <form action="{% url 'blog_update' object.pk %}" method="post">
+<section class="form-section">
+    <h1>Create New Post</h1>
+    <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Update">
+        {{ form.as_p }}
+        <button type="submit" class="btn">Save Post</button>
+        <a href="{% url 'blog_list' %}" class="btn-secondary">Back to Posts</a>
     </form>
-
-{% endblock content %}
+</section>
+{% endblock %}

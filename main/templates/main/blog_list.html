@@ -1,12 +1,23 @@
-{%  extends 'main/base.html' %}
-{% load static %}
+{% extends 'main/base.html' %}
+{% block title %}All Blog Posts{% endblock %}
 {% block content %}
-<br>
-<br>
-<a href="{% url 'blog_create' %}">+ New Blog Post</a>
-    {% for post in posts %}
-       <div class="post-entry">
-           <h2><a href="{% url 'blog_detail' post.pk %}">{{post.title}}</a> </h2>
-       </div>
-    {% endfor %}
-{% endblock content %}
+<section class="blog-list">
+    <div class="blog-header">
+        <h1>Blog Posts</h1>
+        <a href="{% url 'blog_create' %}" class="btn">+ Create New Post</a>
+    </div>
+
+    <ul>
+        {% for post in posts %}
+        <li>
+            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p class="meta">By {{ post.author }}</p>
+            <a href="{% url 'blog_update' post.pk %}" class="btn">Edit</a>
+            <a href="{% url 'blog_delete' post.pk %}" class="btn-secondary">Delete</a>
+        </li>
+        {% empty %}
+        <li><p>No posts available.</p></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

@@ -3,19 +3,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Maghanoy Django Project</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Maghanoy Project{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/Logo.ico' %}" class="/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!-- JS -->
+    <script src="{% static 'js/script.js' %}" defer></script>
 </head>
+
 <body>
-    <header>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'blog' %}">Blog</a>
-    </header>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="{% static 'images/Logo.ico' %}" alt="Logo" class="logo-img">
+            <span class="logo-text">Maghanoy</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+        </ul>
+    </nav>
 
-    {% block content %}
+    <!-- Page Content -->
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
 
-    {% endblock content %}
-
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 <strong>Django-Maghanoy Project</strong>. All rights reserved.</p>
+    </footer>
 </body>
 </html>

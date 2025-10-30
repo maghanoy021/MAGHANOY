@@ -1,12 +1,11 @@
 {% extends 'main/base.html' %}
-{% load static %}
-{% block title %}Home Page{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
-    <h2>Welcome To My Django Project!</h2>
-
-    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
-
-    <script src="{% static 'js/script.js' %}"></script>
-    
+<section class="hero">
+    <h1>Welcome to Django-Maghanoy Project</h1>
+    <br>
+    <p>Join our growing community of learners and creators — where every post inspires innovation and connection.</p>
+    <a href="{% url 'blog_list' %}" class="btn">Visit Post</a>  <!-- ✅ fix here -->
+</section>
 {% endblock %}

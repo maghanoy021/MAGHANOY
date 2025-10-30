@@ -1,14 +1,13 @@
-{%  extends 'main/base.html' %}
-{% load static %}
+{% extends 'main/base.html' %}
+{% block title %}Delete Blog{% endblock %}
 {% block content %}
-<br>
-<br>
-    <h1>Edit Post</h1>
-    <form action="{% url 'blog_delete' object.pk %}" method="post">
-        <p>Are you sure you want to delete "{{post.title}}"?</p>
+<div class="form-container blog-delete">
+    <h2>Delete Blog</h2>
+    <p>Are you sure you want to delete "<strong>{{ object.title }}</strong>"?</p>
+    <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Confirm">
+        <button type="submit" class="btn">Confirm</button>
+        <a href="{% url 'blog_detail' object.pk %}" class="btn-secondary">Cancel</a>
     </form>
-
-{% endblock content %}
+</div>
+{% endblock %}

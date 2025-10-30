@@ -1,1 +1,3 @@
-console.log("JavaScript file loaded successfully!");
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Django-Maghanoy Project JS Loaded ✅");
+});
